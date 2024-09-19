@@ -8,6 +8,7 @@ const AuthPage: FC = () => {
   const { isAuthenticated, loginWithRedirect, isLoading, error } = useAuth0();
   const authRef = useRef<Promise<void> | null>(null);
   if (error) {
+    console.error(error);
     return <ErrorFallbackScreen />;
   }
 

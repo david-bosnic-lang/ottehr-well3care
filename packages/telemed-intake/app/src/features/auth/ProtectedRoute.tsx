@@ -10,6 +10,7 @@ export const ProtectedRoute: FC<{
 }> = ({ loadingFallback, errorFallback, unauthorizedFallback }) => {
   const { isAuthenticated, isLoading, error } = useAuth0();
   if (error) {
+    console.error(error);
     return errorFallback;
   }
 

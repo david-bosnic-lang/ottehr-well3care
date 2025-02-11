@@ -68,15 +68,18 @@ async function updateZapehr(): Promise<void> {
   const applicationIntakeClientID = envIntakeFile
     .split('\n')
     .find((item) => item.split('=')[0] === 'VITE_APP_CLIENT_ID')
-    ?.split('=')[1];
+    ?.split('=')[1].trim();
+
+  console.log(applications)
   const applicationIntakeID = applications.find(
     (application: any) => application.clientId === applicationIntakeClientID
   ).id;
+
   const envEHRFile = fs.readFileSync(`../../apps/ehr/env/.env.${environment}`, 'utf8');
   const applicationEHRClientID = envEHRFile
     .split('\n')
     .find((item) => item.split('=')[0] === 'VITE_APP_OYSTEHR_APPLICATION_CLIENT_ID')
-    ?.split('=')[1];
+    ?.split('=')[1].trim();
   const applicationEHRID = applications.find((application: any) => application.clientId === applicationEHRClientID).id;
 
   const updateIntakeApplicationRequest = await fetch(
@@ -132,7 +135,6 @@ export async function updateZambdas(environment: string, projectID: string): Pro
   const ehrDistribution = distributionsRequest.DistributionList?.Items?.find(
     (distribution: any) => distribution.Comment === `ottehr-ehr-${projectID}`
   );
-
   if (ehrDistribution) {
     ehrEnvFile = ehrEnvFile.replace(
       'VITE_APP_OYSTEHR_APPLICATION_REDIRECT_URL=http://localhost:4002',

@@ -2,9 +2,9 @@
 SCRIPTS_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Clean and set up base directories
-rm -r $SCRIPTS_DIR/../.dist
-mkdir -p $SCRIPTS_DIR/../.dist
-mkdir -p $SCRIPTS_DIR/../.dist/temp
+rm -r "$SCRIPTS_DIR/../.dist"
+mkdir -p "$SCRIPTS_DIR/../.dist"
+mkdir -p "$SCRIPTS_DIR/../.dist/temp"
 
 # Where `serverless package` puts deployment artifacts
 SLS_DIR=$(realpath $SCRIPTS_DIR/../.serverless)
@@ -24,7 +24,7 @@ for ZAMBDA in ${ZIP_ORDER[@]}; do
 done
 
 # Clean up temp
-rm -r $DIST_DIR/temp
+rm -r "$DIST_DIR/temp"
 
 # Announce victory
 echo ''

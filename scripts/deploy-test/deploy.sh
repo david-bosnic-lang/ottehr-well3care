@@ -4,33 +4,33 @@ provider_email=$(grep '"provider_email"' "$(dirname "$0")/deploy-config.json" | 
 environment=$(grep '"environment"' "$(dirname "$0")/deploy-config.json" | sed 's/.*: "\(.*\)".*/\1/')
 ENV=$environment
 if [ -f "apps/intake/env/.env.$environment" ]; then
-    first_setup=false
+    first_setup=true
 else
     first_setup=true
 fi
 
 echo $first_setup
 
-if $first_setup; then
-    sh scripts/ottehr-setup.sh $project_id $access_token $provider_email $environment
-else
-    npm install
-fi
+# if $first_setup; then
+#     sh scripts/ottehr-setup.sh $project_id $access_token $provider_email $environment
+# else
+#     npm install
+# fi
 
 cd packages/intake/zambdas
-ENV=$environment npm run deploy-zambdas $environment
-ENV=$environment npm run setup-zapehr-secrets $environment
+# ENV=$environment npm run deploy-zambdas $environment
+# ENV=$environment npm run setup-zapehr-secrets $environment
 
 cd ../../../apps/intake
-npm run build:env --env=$environment
+# npm run build:env --env=$environment
 
 cd ../../packages/ehr/zambdas
-ENV=$environment npm run deploy-zambdas $environment
-ENV=$environment npm run setup-zapehr-secrets $environment
-ENV=$environment npm run setup-questionnaires $environment
+# ENV=$environment npm run deploy-zambdas $environment
+# ENV=$environment npm run setup-zapehr-secrets $environment
+# ENV=$environment npm run setup-questionnaires $environment
 
 cd ../../../apps/ehr
-npm run build:env --env=$environment
+# npm run build:env --env=$environment
 
 cd ../../scripts/deploy-test
 if $first_setup; then

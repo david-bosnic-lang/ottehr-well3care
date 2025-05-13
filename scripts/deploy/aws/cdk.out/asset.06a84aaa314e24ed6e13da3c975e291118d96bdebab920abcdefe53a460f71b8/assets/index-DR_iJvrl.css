@@ -1,0 +1,38 @@
+.reactEasyCrop_CropArea {
+  border: 1px solid rgb(35, 37, 40) !important;
+  color: #fff !important;
+}
+@font-face {
+  font-family: Rubik;
+  src:
+    local('Rubik'),
+    url(/assets/Rubik-Regular-MlFZsidn.woff2) format('woff2'),
+    local('Rubik'),
+    url(/assets/Rubik-Regular-BWOT0kZV.woff) format('woff'),
+    local('Rubik'),
+    url(/assets/Rubik-Regular-BCr64LpH.ttf) format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Rubik;
+  src:
+    local('Rubik'),
+    url(/assets/Rubik-Bold-CcRCGCfL.woff2) format('woff2'),
+    local('Rubik'),
+    url(/assets/Rubik-Bold-Bl9OTbbt.woff) format('woff'),
+    local('Rubik'),
+    url(/assets/Rubik-Bold-OGWP0tra.ttf) format('ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: Rubik;
+  src:
+    local('Rubik'),
+    url(/assets/Rubik-Medium-CivPKezq.ttf) format('ttf'),
+    local('Rubik'),
+    url(/assets/Rubik-Medium-BrI6KYh2.woff) format('woff'),
+    local('Rubik'),
+    url(/assets/Rubik-Medium-Dm7uJT_Z.woff2) format('woff2');
+  font-weight: 500;
+}

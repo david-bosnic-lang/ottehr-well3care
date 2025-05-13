@@ -1,0 +1,282 @@
+{
+  "version": "40.0.0",
+  "artifacts": {
+    "ottehr-infra-stack-staging.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ottehr-infra-stack-staging.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ottehr-infra-stack-staging": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "ottehr-infra-stack-staging.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/eccb0e2dbc80cff83efd952a8b6555d3277c9159b58e7b8d500a1ed80cee0c3b.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ottehr-infra-stack-staging.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ottehr-infra-stack-staging.assets"
+      ],
+      "metadata": {
+        "/ottehr-infra-stack-staging/create-patientPortal-s3-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createpatientPortals3bucketD7205E26"
+          }
+        ],
+        "/ottehr-infra-stack-staging/create-patientPortal-s3-bucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createpatientPortals3bucketPolicy338E9857"
+          }
+        ],
+        "/ottehr-infra-stack-staging/create-patientPortal-s3-bucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createpatientPortals3bucketAutoDeleteObjectsCustomResource8E0D906B"
+          }
+        ],
+        "/ottehr-infra-stack-staging/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/ottehr-infra-stack-staging/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/ottehr-infra-stack-staging/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/ottehr-infra-stack-staging/create-ehr-s3-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createehrs3bucketD5C23968"
+          }
+        ],
+        "/ottehr-infra-stack-staging/create-ehr-s3-bucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createehrs3bucketPolicy85A58DC0"
+          }
+        ],
+        "/ottehr-infra-stack-staging/create-ehr-s3-bucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createehrs3bucketAutoDeleteObjectsCustomResourceD42A6EA2"
+          }
+        ],
+        "/ottehr-infra-stack-staging/create-patientPortal-cloudfront-distribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createpatientPortalcloudfrontdistributionC5F500F0"
+          }
+        ],
+        "/ottehr-infra-stack-staging/create-ehr-cloudfront-distribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "createehrcloudfrontdistribution2D0508CC"
+          }
+        ],
+        "/ottehr-infra-stack-staging/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ottehr-infra-stack-staging/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/ottehr-infra-stack-staging/Exports/Output{\"Ref\":\"createpatientPortals3bucketD7205E26\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefcreatepatientPortals3bucketD7205E2682342FFA"
+          }
+        ],
+        "/ottehr-infra-stack-staging/Exports/Output{\"Fn::GetAtt\":[\"createpatientPortals3bucketD7205E26\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttcreatepatientPortals3bucketD7205E26Arn3B6F4F1F"
+          }
+        ],
+        "/ottehr-infra-stack-staging/Exports/Output{\"Fn::GetAtt\":[\"createehrs3bucketD5C23968\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttcreateehrs3bucketD5C23968ArnA6E901F1"
+          }
+        ],
+        "/ottehr-infra-stack-staging/Exports/Output{\"Ref\":\"createehrs3bucketD5C23968\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefcreateehrs3bucketD5C23968DA855B38"
+          }
+        ],
+        "/ottehr-infra-stack-staging/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ottehr-infra-stack-staging/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ottehr-infra-stack-staging"
+    },
+    "ottehr-data-stack-staging.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ottehr-data-stack-staging.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ottehr-data-stack-staging": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "ottehr-data-stack-staging.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/b45c1b93240b820cb0b992b6766fdbd9d351fa02f44f3e1683764dfb305d7739.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ottehr-data-stack-staging.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ottehr-infra-stack-staging",
+        "ottehr-data-stack-staging.assets"
+      ],
+      "metadata": {
+        "/ottehr-data-stack-staging/upload-intake-to-s3-bucket/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "uploadintaketos3bucketAwsCliLayer969240AD"
+          }
+        ],
+        "/ottehr-data-stack-staging/upload-intake-to-s3-bucket/CustomResource-2048MiB/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "uploadintaketos3bucketCustomResource2048MiB2A71D176"
+          }
+        ],
+        "/ottehr-data-stack-staging/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C2048MiB": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          }
+        ],
+        "/ottehr-data-stack-staging/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C2048MiB/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C2048MiBServiceRoleB37F9ACF"
+          }
+        ],
+        "/ottehr-data-stack-staging/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C2048MiB/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C2048MiBServiceRoleDefaultPolicy5D765796"
+          }
+        ],
+        "/ottehr-data-stack-staging/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C2048MiB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C2048MiB8AA4A604"
+          }
+        ],
+        "/ottehr-data-stack-staging/upload-ehr-to-s3-bucket/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "uploadehrtos3bucketAwsCliLayer665535CE"
+          }
+        ],
+        "/ottehr-data-stack-staging/upload-ehr-to-s3-bucket/CustomResource-2048MiB/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "uploadehrtos3bucketCustomResource2048MiB70B9B7BA"
+          }
+        ],
+        "/ottehr-data-stack-staging/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ottehr-data-stack-staging/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/ottehr-data-stack-staging/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ottehr-data-stack-staging/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ottehr-data-stack-staging"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

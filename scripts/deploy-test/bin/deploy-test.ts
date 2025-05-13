@@ -68,9 +68,10 @@ async function updateZapehr(): Promise<void> {
   const applicationIntakeClientID = envIntakeFile
     .split('\n')
     .find((item) => item.split('=')[0] === 'VITE_APP_CLIENT_ID')
-    ?.split('=')[1].trim();
-  console.log(applicationIntakeClientID)
-  console.log(applications)
+    ?.split('=')[1]
+    .trim();
+  console.log(applicationIntakeClientID);
+  console.log(applications);
   const applicationIntakeID = applications.find(
     (application: any) => application.clientId === applicationIntakeClientID
   ).id;
@@ -79,8 +80,9 @@ async function updateZapehr(): Promise<void> {
   const applicationEHRClientID = envEHRFile
     .split('\n')
     .find((item) => item.split('=')[0] === 'VITE_APP_OYSTEHR_APPLICATION_CLIENT_ID')
-    ?.split('=')[1].trim();
-  console.log(applicationEHRClientID)
+    ?.split('=')[1]
+    .trim();
+  console.log(applicationEHRClientID);
   const applicationEHRID = applications.find((application: any) => application.clientId === applicationEHRClientID).id;
 
   const updateIntakeApplicationRequest = await fetch(

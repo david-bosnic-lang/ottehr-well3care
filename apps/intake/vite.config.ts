@@ -65,8 +65,8 @@ export default (env: any): Record<string, any> => {
       },
       resolve: {
         alias: {
-          '@theme': path.resolve(__dirname, appEnv.THEME_PATH || '/src/themes/ottehr'),
-          '@defaultTheme': path.resolve(__dirname, '/src/themes/ottehr'),
+          '@theme': path.resolve('./src/themes/ottehr'),
+          '@defaultTheme': path.resolve('./src/themes/ottehr'),
         },
       },
     })

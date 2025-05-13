@@ -61,7 +61,7 @@ function createWebsiteBucket(
       ignorePublicAcls: true,
       restrictPublicBuckets: false,
     },
-    bucketName: `ottehr-${projectIdentifier}-${subdomain}.${domain}`,
+    bucketName: `ottehr2-${projectIdentifier}-${subdomain}.${domain}`,
     removalPolicy: RemovalPolicy.DESTROY,
     autoDeleteObjects: true,
   });
